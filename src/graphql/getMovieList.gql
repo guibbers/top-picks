@@ -1,0 +1,11 @@
+query($genre: String){
+  Genre(name: $genre){
+		movies(first: 20){
+    	title
+      poster
+      year
+      runtime
+      imdbRating
+  	}
+  }
+}
