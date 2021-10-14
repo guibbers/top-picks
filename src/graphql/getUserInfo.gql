@@ -1,0 +1,5 @@
+query($id: ID!) {
+  me: User(userId: $id){
+    name
+  }
+}

@@ -9,6 +9,7 @@
           <v-text-field
             label="User ID"
             prepend-icon="mdi-account-circle"
+            v-model.number="userId"
           ></v-text-field>
           <v-text-field
             :type="showPassword ? 'text' : 'password'"
@@ -35,10 +36,20 @@ export default {
   data() {
     return {
       showPassword: false,
+      userId: null,
     }
   },
   methods: {
     async userLogin() {
+      await this.$store.dispatch('setUserId', this.userId)
+
+      const username = await this.$apollo.query({
+        query: require('@/graphql/getUserInfo.gql'),
+        variables: {
+          id: this.userId,
+        },
+      })
+      await this.$store.dispatch('getUsername', username.data.me[0].name)
       await this.$store.dispatch('userLogin')
       this.$router.push({ name: 'Movies' })
     },

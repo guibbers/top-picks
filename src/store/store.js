@@ -6,28 +6,29 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     userIsLoggedIn: false,
-    userId: Number,
+    userId: null,
     username: '',
-    links: [
-      {
-        name: 'login',
-        route: '/login',
-      },
-      {
-        name: 'home',
-        route: '/',
-      },
-    ],
   },
   mutations: {
     USER_LOGIN(state) {
       state.userIsLoggedIn = !state.userIsLoggedIn
     },
-  },
-  actions: {
-    userLogin() {
-      this.commit('USER_LOGIN')
+    SET_USER_ID(state, userId) {
+      state.userId = userId
+    },
+    GET_USER_NAME(state, username) {
+      state.username = username
     },
   },
-  modules: {},
+  actions: {
+    userLogin({ commit }) {
+      commit('USER_LOGIN')
+    },
+    setUserId({ commit }, userId) {
+      commit('SET_USER_ID', userId)
+    },
+    getUsername({ commit }, username) {
+      commit('GET_USER_NAME', username)
+    },
+  },
 })
