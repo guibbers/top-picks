@@ -5,9 +5,29 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    links: ['Login', 'Home'],
+    userIsLoggedIn: false,
+    userId: Number,
+    username: '',
+    links: [
+      {
+        name: 'login',
+        route: '/login',
+      },
+      {
+        name: 'home',
+        route: '/',
+      },
+    ],
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    USER_LOGIN(state) {
+      state.userIsLoggedIn = !state.userIsLoggedIn
+    },
+  },
+  actions: {
+    userLogin() {
+      this.commit('USER_LOGIN')
+    },
+  },
   modules: {},
 })

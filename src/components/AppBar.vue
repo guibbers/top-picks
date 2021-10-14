@@ -4,13 +4,14 @@
     <v-spacer></v-spacer>
     <v-btn
       v-for="link in links"
-      :key="link"
+      :key="link.name"
+      :to="link.route"
       color="white"
       text
       rounded
       class="my-2"
     >
-      {{ link }}
+      {{ link.name }}
     </v-btn>
   </v-app-bar>
 </template>

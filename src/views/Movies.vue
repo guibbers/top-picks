@@ -1,16 +1,11 @@
 <template>
   <div>
-    <Login />
+    <h5>meteu essa?</h5>
   </div>
 </template>
 
 <script>
-import Login from '@/components/Login'
-
 export default {
   name: 'Home',
-  components: {
-    Login,
-  },
 }
 </script>

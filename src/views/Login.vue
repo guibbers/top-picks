@@ -23,7 +23,7 @@
       <v-card-actions>
         <v-btn color="success">Register</v-btn>
         <v-spacer></v-spacer>
-        <v-btn color="info">Login</v-btn>
+        <v-btn color="info" @click="userLogin">Login</v-btn>
       </v-card-actions>
     </v-card>
   </div>
@@ -36,6 +36,12 @@ export default {
     return {
       showPassword: false,
     }
+  },
+  methods: {
+    async userLogin() {
+      await this.$store.dispatch('userLogin')
+      this.$router.push({ name: 'Movies' })
+    },
   },
 }
 </script>
