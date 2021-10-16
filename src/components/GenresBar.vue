@@ -11,16 +11,22 @@
         </v-tab>
       </v-tabs>
     </v-app-bar>
+    <MovieList :movieList="movieList" />
   </div>
 </template>
 
 <script>
+import MovieList from '@/components/MovieList.vue'
+
 export default {
   data() {
     return {
       genres: [],
       movieList: [],
     }
+  },
+  components: {
+    MovieList,
   },
   methods: {
     async getMovieGenres() {
@@ -37,12 +43,13 @@ export default {
         },
       })
       this.movieList = movieList.data.Genre[0].movies
-      console.log(this.movieList)
+      console.log(movieList)
     },
   },
 
   created() {
     this.getMovieGenres()
+    this.getMovieList()
   },
 }
 </script>
