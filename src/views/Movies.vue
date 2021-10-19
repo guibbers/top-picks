@@ -11,5 +11,10 @@ export default {
   components: {
     GenresBar,
   },
+  data() {
+    return {
+      movieList: [],
+    }
+  },
 }
 </script>

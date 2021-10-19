@@ -11,12 +11,16 @@
         </v-tab>
       </v-tabs>
     </v-app-bar>
-    <MovieList :movieList="movieList" />
+    <MovieCard
+      v-for="movie in this.movieList"
+      :key="movie.movieId"
+      :movieObject="movie"
+    />
   </div>
 </template>
 
 <script>
-import MovieList from '@/components/MovieList.vue'
+import MovieCard from '@/components/MovieCard.vue'
 
 export default {
   data() {
@@ -26,7 +30,7 @@ export default {
     }
   },
   components: {
-    MovieList,
+    MovieCard,
   },
   methods: {
     async getMovieGenres() {
