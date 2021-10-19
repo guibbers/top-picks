@@ -1,6 +1,6 @@
 query($genre: String){
   Genre(name: $genre){
-		movies(first: 20){
+		movies(first: 30){
     	title
       poster
       year

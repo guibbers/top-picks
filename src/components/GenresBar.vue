@@ -11,11 +11,15 @@
         </v-tab>
       </v-tabs>
     </v-app-bar>
-    <MovieCard
-      v-for="movie in this.movieList"
-      :key="movie.movieId"
-      :movieObject="movie"
-    />
+
+    <div class="d-flex flex-wrap ml-auto mr-auto">
+      <MovieCard
+        class="ml-auto mr-auto mt-5"
+        v-for="movie in this.movieList"
+        :key="movie.movieId"
+        :movieObject="movie"
+      />
+    </div>
   </div>
 </template>
 

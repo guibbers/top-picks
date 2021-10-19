@@ -26,6 +26,7 @@ export default {
           route: '/movies',
         },
       ],
+      movieSearch: '',
     }
   },
   computed: {
